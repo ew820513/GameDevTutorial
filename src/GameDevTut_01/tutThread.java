@@ -2,7 +2,7 @@ package GameDevTut_01;
 
 import java.util.Random;
 
-public class GameDevTutOne_Thread implements Runnable {
+public class tutThread implements Runnable {
     String name;
     int time;
     Random r = new Random();
@@ -17,7 +17,7 @@ public class GameDevTutOne_Thread implements Runnable {
         }
     }
 
-    public GameDevTutOne_Thread(String s) {
+    public tutThread(String s) {
         this.name = s;
         this.time = r.nextInt(999);
     }
