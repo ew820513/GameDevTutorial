@@ -1,9 +1,11 @@
-package GameDevTut_07; /**
+package GameDevTut_07;
+
+/**
  * Created by ew513_000 on 5/25/2014.
  */
 
 import java.awt.*;
-import javax.swing.JFrame;
+import javax.swing.*;
 
 public class GameDevTutSev extends JFrame{
     public static void main(String[] args) {
@@ -27,7 +29,7 @@ public class GameDevTutSev extends JFrame{
 
         try{
             s.setFullScreen(dm, this);
-            loadpics();
+            loadPics();
             try{
                 Thread.sleep(5000);
             }catch(Exception e){}
@@ -36,8 +38,11 @@ public class GameDevTutSev extends JFrame{
         }
     }
 
-    private void loadpics() {
-
+    private void loadPics() {
+        bg = new ImageIcon(this.getClass().getResource("img/20140526-google_doodle.jpg")).getImage();
+        pic = new ImageIcon(this.getClass().getResource("img/20140526-icons.jpg")).getImage();
+        loaded = true;
+        repaint();
     }
 
     public void paint(Graphics g){
@@ -45,8 +50,10 @@ public class GameDevTutSev extends JFrame{
             Graphics2D g2 = (Graphics2D) g;
             g2.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
         }
-        super.paint(g);
-        g.drawString("this is gona be cool", 200, 200);
+        if(loaded){
+            g.drawImage(bg,0,0,null);
+            g.drawImage(pic,170,180,null);
+        }
     }
 }
 
