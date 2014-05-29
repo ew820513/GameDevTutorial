@@ -5,4 +5,9 @@ package GameDevTut_08;
  */
 public class Trial {
     //just trying things out
+    private int anInt;
+
+    public Trial(){
+        anInt = 100;
+    }
 }
