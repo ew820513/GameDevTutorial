@@ -40,4 +40,30 @@ public class GameDevTutEight {
             screen.restoreScreen();
         }
     }
+
+    public void movieLoop(){
+        long startingTime = System.currentTimeMillis();
+        long cumTime = startingTime;
+
+        while(cumTime - startingTime<5000){
+            long timePassed = System.currentTimeMillis()-cumTime;
+            cumTime += timePassed;
+            a.update(timePassed);
+
+            Graphics g = screen.getFullScreenWindow().getGraphics();
+            draw(g);
+            g.dispose();
+
+            try{
+                Thread.sleep(200);
+            }catch(Exception e){
+
+            }
+        }
+    }
+
+    public void draw(Graphics g){
+        g.drawImage(bg,0,0,null);
+        g.drawImage(a.getImage(),0,0,null);
+    }
 }
